@@ -21,7 +21,7 @@ import edu.kit.ipd.are.agentanalysis.port.xplore.dto.HypothesisDTO;
  *
  */
 public final class Main {
-	private static boolean GUI = true;
+	private static boolean useGUI = true;
 
 	private Main() {
 		throw new IllegalAccessError();
@@ -92,7 +92,7 @@ public final class Main {
 	}
 
 	private static void startEvaluation(Scanner scan, Evaluator evaluator) {
-		if (Main.GUI) {
+		if (Main.useGUI) {
 			Main.setSystemLookAndFeel();
 		}
 
@@ -103,7 +103,7 @@ public final class Main {
 			String word = next.getThird();
 
 			Classification cls;
-			if (Main.GUI) {
+			if (Main.useGUI) {
 				cls = Main.classifyGUI(evaluator, layer, hypothesis, word);
 			} else {
 				cls = Main.classifyTUI(scan, evaluator, layer, hypothesis, word);

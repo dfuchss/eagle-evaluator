@@ -237,7 +237,7 @@ public class Evaluator {
 		boolean isLeaf = step.getChildren().isEmpty();
 		if (isLeaf || isPseudoHypothesis) {
 			// if leaf use generated hypotheses instead of selections ..
-			for (var h : this.getHypothesesForLeaf(step, isPseudoHypothesis ? Configuration.maxHypothesesPerPseudoHypothesis : Configuration.maxHypothesesForLeaf)) {
+			for (var h : this.getHypothesesForLeaf(step, isPseudoHypothesis ? Configuration.MAX_HYPOTHESES_PER_PSEUDO_HYP : Configuration.MAX_HYPOTHESES_PER_LEAF)) {
 				if (Classification.isGood(this.evaluationData.getClassification(layer, (HypothesisDTO) h)) == Boolean.TRUE) {
 					hits.add(Tuple2.of(layer, h));
 				} else if (Classification.isGood(this.evaluationData.getClassification(layer, (HypothesisDTO) h)) == Boolean.FALSE) {
@@ -265,7 +265,7 @@ public class Evaluator {
 			for (int i = 0; i < orderdHypothesis.size() && (i < maxHypotheses || this.equalScores(score, orderdHypothesis.get(i).getConfidence())); i++) {
 				var h = orderdHypothesis.get(i);
 				score = h.getConfidence();
-				if (Configuration.skipConfidenceLessEqualForLeaf != null && !Double.isNaN(score) && score <= Configuration.skipConfidenceLessEqualForLeaf) {
+				if (Configuration.SKIP_IFF_CONFIDENCE_LESS != null && !Double.isNaN(score) && score <= Configuration.SKIP_IFF_CONFIDENCE_LESS) {
 					break;
 				}
 				result.add(h);

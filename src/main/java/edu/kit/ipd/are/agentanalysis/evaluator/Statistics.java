@@ -40,7 +40,7 @@ public final class Statistics {
 	 * @deprecated agent-analysis-evaluation is used to generate the evaluation
 	 *             results. statistics not needed anymore.
 	 */
-	@Deprecated
+	@Deprecated(forRemoval = false)
 	public static void generateStats(File explorationFileOrDir, File evalFile) {
 		System.err.println("Writing Stat file ..");
 		Evaluator evaluator = null;
@@ -76,16 +76,16 @@ public final class Statistics {
 
 	private static void generateCSV(File evalFile, Evaluator evaluator, List<File> toScore) throws IOException {
 		File target = new File(evalFile.getAbsolutePath() + ".stats.csv");
-		FileWriter fw = new FileWriter(target);
-		var paths = Statistics.extractExplorationResults("Scenario", toScore);
+		try (FileWriter fw = new FileWriter(target)) {
+			var paths = Statistics.extractExplorationResults("Scenario", toScore);
 
-		int layers = evaluator.findNumOfLayers();
-		Statistics.generateCSVHeader(fw, layers, paths.get(0).getSecond().getInputText());
-		for (var path : paths) {
-			// TODO Check NoHyp works ..
-			Statistics.appendLine(layers, fw, path, evaluator, path.getFirst().contains("no-hyp"));
+			int layers = evaluator.findNumOfLayers();
+			Statistics.generateCSVHeader(fw, layers, paths.get(0).getSecond().getInputText());
+			for (var path : paths) {
+				// TODO Check NoHyp works ..
+				Statistics.appendLine(layers, fw, path, evaluator, path.getFirst().contains("no-hyp"));
+			}
 		}
-		fw.close();
 	}
 
 	private static void generateCSVHeader(FileWriter fw, int layers, String sentence) throws IOException {
@@ -211,13 +211,14 @@ public final class Statistics {
 			String name = key.substring(0, key.length() - ".json".length()) + "-Top-" + String.format("%0" + pad + "d", i) + "-" + selector + "-" + lEval + "-" + lComb + "-best.json";
 			result.add(Tuple2.of(name, path.getFirst().toExplorationResult(pathText)));
 
-			if (Configuration.storePaths) {
+			if (Configuration.STORE_PATHS_AS_FILES) {
 				try {
 					var mapper = Serialize.getObjectMapperForGetters(true);
 					var jsonGetter = mapper.writeValueAsString(path.getFirst().toExplorationResult(pathText));
-					var fw = new FileWriter(new File(basePath + File.separator + name));
-					fw.write(jsonGetter);
-					fw.close();
+					try (var fw = new FileWriter(new File(basePath + File.separator + name))) {
+						fw.write(jsonGetter);
+					}
+
 				} catch (IOException e) {
 					System.err.println("Error while storing file .. " + e);
 				}
