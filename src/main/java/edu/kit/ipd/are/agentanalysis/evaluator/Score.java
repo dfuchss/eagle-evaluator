@@ -21,17 +21,33 @@ public final class Score implements Comparable<Score> {
 	 * Harmonic mean of {@link #precision} and {@link #recall}.
 	 */
 	public final double f1;
+	/**
+	 * True Positive
+	 */
+	public final int tp;
+	/**
+	 * False Positive
+	 */
+	public final int fp;
+	/**
+	 * False Negative
+	 */
+	public final int fn;
 
 	/**
-	 * Create score wrapper by precision and recall.
+	 * Create score wrapper.
 	 *
-	 * @param precision the precision
-	 * @param recall    the recall
+	 * @param tp true positive
+	 * @param fp false positive
+	 * @param fn false negative
 	 */
-	public Score(double precision, double recall) {
-		this.precision = precision;
-		this.recall = recall;
-		this.f1 = 2 * precision * recall / (precision + recall);
+	public Score(int tp, int fp, int fn) {
+		this.tp = tp;
+		this.fp = fp;
+		this.fn = fn;
+		this.precision = 1.0 * tp / (tp + fp);
+		this.recall = 1.0 * tp / (tp + fn);
+		this.f1 = 2 * this.precision * this.recall / (this.precision + this.recall);
 	}
 
 	@Override

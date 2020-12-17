@@ -254,11 +254,7 @@ public final class Statistics {
 	}
 
 	private static Score getScore(int hitCount, int badCount, int allHits) {
-		// Precision
-		double precision = (1.0 * hitCount) / (hitCount + badCount);
-		// Recall
-		double recall = (1.0 * hitCount) / allHits;
-		return new Score(precision, recall);
+		return new Score(hitCount, badCount, allHits - hitCount);
 	}
 
 	private static void storeStats(List<Tuple2<String, List<Score>>> fileXScores, File evalFile, File explorationFile) {
