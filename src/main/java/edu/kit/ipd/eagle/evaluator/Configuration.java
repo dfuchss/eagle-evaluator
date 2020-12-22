@@ -1,6 +1,6 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
-import edu.kit.ipd.are.agentanalysis.port.hypothesis.IHypothesesSet;
+import edu.kit.ipd.eagle.port.hypothesis.IHypothesesSet;
 
 /**
  * The configuration for the evaluator.

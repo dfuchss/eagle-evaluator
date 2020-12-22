@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

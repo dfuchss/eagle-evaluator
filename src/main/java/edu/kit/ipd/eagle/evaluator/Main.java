@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import org.fuchss.tools.tuple.Tuple3;
 
-import edu.kit.ipd.are.agentanalysis.port.xplore.dto.HypothesisDTO;
+import edu.kit.ipd.eagle.port.xplore.dto.HypothesisDTO;
 
 /**
  * The main class of the agent analysis evaluator.

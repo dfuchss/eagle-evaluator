@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -12,14 +12,14 @@ import java.util.stream.IntStream;
 
 import org.fuchss.tools.tuple.Tuple2;
 
-import edu.kit.ipd.are.agentanalysis.impl.xplore.rating.HypothesesSelectionFunction;
-import edu.kit.ipd.are.agentanalysis.impl.xplore.rating.LayerCombination;
-import edu.kit.ipd.are.agentanalysis.impl.xplore.rating.LayerEntryEvaluation;
-import edu.kit.ipd.are.agentanalysis.impl.xplore.rating.NormalizedAggregate;
-import edu.kit.ipd.are.agentanalysis.port.util.Serialize;
-import edu.kit.ipd.are.agentanalysis.port.xplore.IExplorationResult;
-import edu.kit.ipd.are.agentanalysis.port.xplore.IPath;
-import edu.kit.ipd.are.agentanalysis.port.xplore.dto.ExplorationResultDTO;
+import edu.kit.ipd.eagle.impl.xplore.rating.HypothesesSelectionFunction;
+import edu.kit.ipd.eagle.impl.xplore.rating.LayerCombination;
+import edu.kit.ipd.eagle.impl.xplore.rating.LayerEntryEvaluation;
+import edu.kit.ipd.eagle.impl.xplore.rating.NormalizedAggregate;
+import edu.kit.ipd.eagle.port.util.Serialize;
+import edu.kit.ipd.eagle.port.xplore.IExplorationResult;
+import edu.kit.ipd.eagle.port.xplore.IPath;
+import edu.kit.ipd.eagle.port.xplore.dto.ExplorationResultDTO;
 
 /**
  * Helper class to generate statistics for evaluation.

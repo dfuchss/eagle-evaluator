@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 /**
  * Defines a wrapper class for an evaluation score. See

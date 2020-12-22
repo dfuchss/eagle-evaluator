@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import edu.kit.ipd.are.agentanalysis.port.hypothesis.IHypothesis;
-import edu.kit.ipd.are.agentanalysis.port.xplore.dto.HypothesisDTO;
+import edu.kit.ipd.eagle.port.hypothesis.IHypothesis;
+import edu.kit.ipd.eagle.port.xplore.dto.HypothesisDTO;
 
 /**
  * Contains the user choices whether a hypotheses is good or bad.

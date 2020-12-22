@@ -1,4 +1,4 @@
-package edu.kit.ipd.are.agentanalysis.evaluator;
+package edu.kit.ipd.eagle.evaluator;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,14 +12,14 @@ import java.util.stream.Stream;
 import org.fuchss.tools.tuple.Tuple2;
 import org.fuchss.tools.tuple.Tuple3;
 
-import edu.kit.ipd.are.agentanalysis.port.hypothesis.HypothesisRange;
-import edu.kit.ipd.are.agentanalysis.port.hypothesis.IHypothesesSet;
-import edu.kit.ipd.are.agentanalysis.port.hypothesis.IHypothesis;
-import edu.kit.ipd.are.agentanalysis.port.util.Serialize;
-import edu.kit.ipd.are.agentanalysis.port.xplore.IExplorationResult;
-import edu.kit.ipd.are.agentanalysis.port.xplore.dto.ExplorationResultDTO;
-import edu.kit.ipd.are.agentanalysis.port.xplore.dto.HypothesisDTO;
-import edu.kit.ipd.are.agentanalysis.port.xplore.layer.ILayerEntry;
+import edu.kit.ipd.eagle.port.hypothesis.HypothesisRange;
+import edu.kit.ipd.eagle.port.hypothesis.IHypothesesSet;
+import edu.kit.ipd.eagle.port.hypothesis.IHypothesis;
+import edu.kit.ipd.eagle.port.util.Serialize;
+import edu.kit.ipd.eagle.port.xplore.IExplorationResult;
+import edu.kit.ipd.eagle.port.xplore.dto.ExplorationResultDTO;
+import edu.kit.ipd.eagle.port.xplore.dto.HypothesisDTO;
+import edu.kit.ipd.eagle.port.xplore.layer.ILayerEntry;
 
 /**
  * Defines the evaluator of multiple (or a single) exploration results.
