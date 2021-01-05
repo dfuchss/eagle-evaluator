@@ -166,7 +166,7 @@ public class Evaluator {
 	 * @return the input text
 	 */
 	public String getSentence() {
-		return this.explorationResult.getInputText();
+		return this.explorationResult.getId();
 	}
 
 	/**

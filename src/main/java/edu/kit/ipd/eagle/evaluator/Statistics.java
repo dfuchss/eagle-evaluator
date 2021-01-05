@@ -80,7 +80,7 @@ public final class Statistics {
 			var paths = Statistics.extractExplorationResults("Scenario", toScore);
 
 			int layers = evaluator.findNumOfLayers();
-			Statistics.generateCSVHeader(fw, layers, paths.get(0).getSecond().getInputText());
+			Statistics.generateCSVHeader(fw, layers, paths.get(0).getSecond().getId());
 			for (var path : paths) {
 				// TODO Check NoHyp works ..
 				Statistics.appendLine(layers, fw, path, evaluator, path.getFirst().contains("no-hyp"));
@@ -111,7 +111,7 @@ public final class Statistics {
 	private static void appendLine(int layers, FileWriter fw, Tuple2<String, IExplorationResult> path, Evaluator evaluator, boolean isPseudoHypothesis) throws IOException {
 		var hitsXbadPerLayer = evaluator.getHitsWithBad(path.getSecond(), isPseudoHypothesis);
 
-		fw.append(path.getFirst()).append(";").append(Statistics.getScore(path.getSecond().getInputText())).append(";");
+		fw.append(path.getFirst()).append(";").append(Statistics.getScore(path.getSecond().getId())).append(";");
 
 		// Good values
 		int hits = 0;
@@ -172,7 +172,7 @@ public final class Statistics {
 
 			if (paths.size() != 1) {
 				// Find all other paths .. with ratings ..
-				List<Tuple2<String, IExplorationResult>> ratedPaths = Statistics.generateRatings(basePath, f.getName(), exploration.getInputText(), paths);
+				List<Tuple2<String, IExplorationResult>> ratedPaths = Statistics.generateRatings(basePath, f.getName(), exploration.getId(), paths);
 				result.addAll(ratedPaths);
 			}
 
