@@ -77,7 +77,7 @@ public class Evaluator {
 	 * Find next hypothesis to classify.
 	 *
 	 * @return the next hypothesis (as well as the layer (starting at 0), and word
-	 *         iff {@link HypothesisRange#NODE}) for classification or {@code null}
+	 *         iff {@link HypothesisRange#ELEMENT}) for classification or {@code null}
 	 *         iff no further classification is needed
 	 */
 	public Tuple3<Integer, HypothesisDTO, String> findNextHypothesis() {
@@ -86,7 +86,7 @@ public class Evaluator {
 			var possibleNextTuple = this.remainingHypotheses.poll();
 			int layer = possibleNextTuple.getFirst();
 			IHypothesesSet hypothesesSet = possibleNextTuple.getSecond();
-			String word = hypothesesSet.getHypothesesRange() == HypothesisRange.NODE ? hypothesesSet.getWordOfHypotheses() : null;
+			String word = hypothesesSet.getHypothesesRange() == HypothesisRange.ELEMENT ? hypothesesSet.getElementOfHypotheses() : null;
 			HypothesisDTO possibleNext = possibleNextTuple.getThird();
 
 			Classification classification = this.evaluationData.getClassification(layer, possibleNext);
