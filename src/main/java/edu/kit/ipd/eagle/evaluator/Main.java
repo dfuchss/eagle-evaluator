@@ -116,7 +116,7 @@ public final class Main {
 	private static Classification classifyGUI(Evaluator evaluator, int layer, HypothesisDTO hypothesis, String word) {
 		String[] answers = Arrays.asList(Classification.values()).stream().map(Classification::toString).collect(Collectors.toList()).toArray(String[]::new);
 
-		String message = "Sentence: \"" + evaluator.getSentence() + "\"\n";
+		String message = "ExplorationId/Sentence: \"" + evaluator.getId() + "\"\n";
 		if (word == null) {
 			message += "Layer: " + layer + ", Hypothesis: " + hypothesis.getValue();
 		} else {
@@ -132,7 +132,7 @@ public final class Main {
 
 	private static Classification classifyTUI(Scanner scan, Evaluator evaluator, int layer, HypothesisDTO hypothesis, String word) {
 		System.out.println("----------------------");
-		System.out.println("Next hypothesis for sentence \"" + evaluator.getSentence() + "\" is:\n");
+		System.out.println("Next hypothesis for ExplorationId/Sentence \"" + evaluator.getId() + "\" is:\n");
 		if (word == null) {
 			System.out.println("Layer: " + layer + ", Hypothesis: " + hypothesis.getValue());
 		} else {

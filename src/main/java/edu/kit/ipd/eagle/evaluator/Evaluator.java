@@ -161,11 +161,11 @@ public class Evaluator {
 	}
 
 	/**
-	 * Get the input text of the exploration result.
+	 * Get the id of the exploration result (may be the text).
 	 *
-	 * @return the input text
+	 * @return the id of the exploration (may be the text)
 	 */
-	public String getSentence() {
+	public String getId() {
 		return this.explorationResult.getId();
 	}
 
