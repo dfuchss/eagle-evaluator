@@ -4,4 +4,4 @@ In order to evaluate an exploration of EAGLE, this tool has been realized.
 This evaluator provides an graphical (or textual) interface to perform a manual classification of all found hypotheses.
 After classification, you can use the classification to evaluate the actual exploration in terms of precision, recall, f1 score, and/or other classification metrics.
 
-![Evaluator](https://github.com/kit-sdq/eagle-evaluator/.github/img/Evaluator.png)
+![Evaluator](.github/img/Evaluator.png)
