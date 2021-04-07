@@ -146,7 +146,7 @@ public class Evaluator {
 	}
 
 	private void loadFromHypothesesSet(int layer, List<Tuple3<Integer, IHypothesesSet, HypothesisDTO>> hypotheses, IHypothesesSet hs) {
-		hs.getHypotheses().stream().map(h -> (HypothesisDTO) h).forEach(h -> hypotheses.add(Tuple3.of(layer, hs, h)));
+		hs.getSortedHypotheses().stream().map(h -> (HypothesisDTO) h).forEach(h -> hypotheses.add(Tuple3.of(layer, hs, h)));
 	}
 
 	private void createEvaluationResult(int layers, File evalFile) throws IOException {
@@ -257,7 +257,7 @@ public class Evaluator {
 		for (var hs : step.getHypotheses()) {
 			int maxHypotheses = hs.isOnlyOneHypothesisValid() ? 1 : max;
 
-			List<IHypothesis> orderdHypothesis = hs.getHypotheses();
+			List<IHypothesis> orderdHypothesis = hs.getSortedHypotheses();
 			double score = orderdHypothesis.get(0).getConfidence();
 
 			// Add Hypotheses as long as maxHypotheses not reached (or in same group of
