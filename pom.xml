@@ -31,7 +31,7 @@
 	<repositories>
 		<repository>
 			<id>gh-fuchss</id>
-			<url>https://nexus.fuchss.org/repository/github/</url>
+			<url>https://packages.fuchss.org/github/releases/raw/branch/releases/</url>
 		</repository>
 		<repository>
 			<id>github</id>
